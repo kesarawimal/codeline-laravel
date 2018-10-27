@@ -11,6 +11,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('comments')->insert([
+            ['name' => 'Mark',
+                'comment' => 'Nice',
+                'slug' => 'Hunter-Killer',],
+
+            ['name' => 'Jack',
+                'comment' => 'Good',
+                'slug' => 'Venom',],
+
+            ['name' => 'Jason',
+                'comment' => 'Great',
+                'slug' => 'Goosebumps-2:-Haunted-Halloween',]
+        ]);
     }
 }

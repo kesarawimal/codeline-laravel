@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\comments;
 use App\films;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -33,6 +34,7 @@ class FilmsController extends Controller
 
     public function one($slug) {
         $film = Films::where('slug', $slug)->first();
-        return view("one_movie", ['film' => $film]);
+        $comments = Comments::where('slug', $slug)->get();
+        return view("one_movie", ['film' => $film, 'comments' => $comments]);
     }
 }

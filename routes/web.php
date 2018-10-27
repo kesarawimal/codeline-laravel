@@ -25,3 +25,5 @@ Route::get('films/{slug}', 'FilmsController@one');
 
 Route::post('films/create', 'FilmsController@create');
 
+Route::post('comment/create', 'CommentsController@create');
+

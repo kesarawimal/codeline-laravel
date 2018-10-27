@@ -9,7 +9,7 @@
                     <p>{{$film->description}}</p>
                 </div>
             <h2>Comments</h2>
-            <form method="POST" action="/public/comment/create">
+            <form method="POST" action="/comment/create">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name</label>
@@ -27,7 +27,7 @@
 
             @foreach($comments as $comment)
                 <div class="comment">
-                    <h3>{{$comment->name}} <span class="small">{{$comment->created_at}}</span></h3>
+                    <h4>{{$comment->name}} <span class="small">{{$comment->created_at}}</span></h4>
                     <p>{{$comment->comment}}</p>
                 </div>
             @endforeach

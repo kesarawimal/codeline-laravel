@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\comments;
 use App\films;
+use App\genres;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,6 +29,13 @@ class FilmsController extends Controller
         $film->photo = "/storage/app/" . urlencode($request->file);
         $film->slug = str_replace(" ", "-", $request->name);
         $film->save();
+
+        foreach (explode(",", $request->genre) as $genre_get) {
+            $genre = new genres();
+            $genre->film_id = $film->id;
+            $genre->name = $genre_get;
+            $genre->save();
+        }
 
         return redirect('films');
     }

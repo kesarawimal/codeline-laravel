@@ -3,7 +3,7 @@
     @section('content')
         <div class="container-fluid">
             <h1>Create new film</h1>
-            <form method="POST" action="create">
+            <form method="POST" action="/films/create">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name</label>

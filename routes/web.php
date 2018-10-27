@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('films');
 });
+
+Route::get('films/create', function () {
+    return view('movie_create');
+});
+
+Route::get('films', 'FilmsController@show');
+
+Route::get('films/{slug}', 'FilmsController@one');
+
+Route::post('films/create', 'FilmsController@create');
+
